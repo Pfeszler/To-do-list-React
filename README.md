@@ -2,7 +2,7 @@
 
 My tasklist converted to React, with use of create-react-app, work in progress
 
-[demo] (https://pfeszler.github.io/To-do-list-React/)
+[demo](https://pfeszler.github.io/To-do-list-React/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
