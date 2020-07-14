@@ -1,0 +1,26 @@
+.section {
+    background-color: white;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 2px 2px #ddd;
+}
+
+.section__header {
+    margin: 0;
+    padding: 0;
+    text-align: left
+}
+
+.section__headerContainer {
+    padding: 25px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .section__headerContainer {
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+}

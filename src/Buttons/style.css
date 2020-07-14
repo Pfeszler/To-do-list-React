@@ -1,0 +1,32 @@
+@media (max-width: 767px) {
+    .buttons__buttonContainer {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.buttons__headerButton {
+    border: none;
+    padding: none;
+    background-color: transparent;
+    color: hsl(180, 100%, 25%);
+    transition: 0.3s;
+}
+
+@media (max-width: 767px) {
+    .buttons__headerButton {
+        margin-top: 30px
+    }
+}
+
+.buttons__headerButton:hover {
+    color: hsl(180, 100%, 30%)
+}
+
+.buttons__headerButton:active {
+    color: hsl(180, 100%, 35%)
+}
+
+.buttons__headerButton:disabled {
+    color: #eee;
+}
