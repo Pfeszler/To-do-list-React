@@ -8,7 +8,7 @@ import Tasks from "./Tasks"
 
 
 
-const tasks = [{ id: 1, content: "example content 1", done: false }, { id: 2, content: "example content 2", done: true }]
+
 
 
 
@@ -19,6 +19,16 @@ function App() {
     const toggleHideDone = () => {
         setHideDone(hideDone => !hideDone)
     };
+
+    const [tasks, setTasks] = useState(
+        [
+            { id: 1, content: "example task 1", done: false },
+            { id: 2, content: "examplet task 2", done: true }
+        ]);
+
+        const removeTask = (id) => {
+            setTasks(tasks => tasks.filter(task => task.id !== id))
+        }
     return (
         <div className="App">
             <Container>
@@ -29,7 +39,7 @@ function App() {
                     body={<Form />} />
                 <Section
                     title="Lista zadań"
-                    body={<Tasks tasks={tasks} hideDone={hideDone} />}
+                    body={<Tasks tasks={tasks} hideDone={hideDone} removeTask={removeTask} />}
                     extraHeaderContent={<Buttons tasks={tasks} hideDone={hideDone} toggleHideDone={toggleHideDone} />} />
 
             </Container>
