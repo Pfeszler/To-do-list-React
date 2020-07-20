@@ -20,11 +20,7 @@ function App() {
         setHideDone(hideDone => !hideDone)
     };
 
-    const [tasks, setTasks] = useState(
-        [
-            { id: 1, content: "example task 1", done: false },
-            { id: 2, content: "examplet task 2", done: true }
-        ]);
+    const [tasks, setTasks] = useState([]);
 
     const removeTask = (id) => {
         setTasks(tasks => tasks.filter(task => task.id !== id))
