@@ -1,8 +1,57 @@
-# Task List
+# Interactive Task List
 
-My tasklist converted to React, with use of create-react-app, work in progress
 
-[demo](https://pfeszler.github.io/To-do-list-React/)
+## Want to see demo page? click [here](https://pfeszler.github.io/To-do-list-React/)
+
+Here it is, my first interactive task list! I made it during the course "Front End Developer" provided by You Code Academy. 
+It contains of header and two sections. On first section there is a INPUT to write your task and button to submit it to the list. Your tasks will appear in the second section. Also, there will be two buttons, one to mark task as completed and second to remove task from the list. Also, on the top of tasks section there is two buttons, one which mark all tasks as done and one that hide done tasks
+
+## Added New fetures: 
+
+Technologies used in development:
+- HTML
+- CSS
+- JavaScript
+- BEM metodolgy
+- React JS
+- create-react-app
+
+## How to use it?
+1. Enter your task in INPUT
+2. Click on BUTTON
+3. Your task will be added to the list in section below
+4. If you want to mark task as completed click on GREEN BUTTON
+5. If you want to delete taksk, click on RED BUTTON
+6. click on "Ukończ Wszystkie" to mark all tasks as done
+7. click on "Ukryj Ukończone"  to hide all done tasks
+8. Enjoy using it :)
+
+## How it looks?
+
+### with tasks
+
+![with-tasks](https://raw.githubusercontent.com/Pfeszler/Task-List/master/README-images/with-tasks.jpg)
+
+### without tasks
+
+![witout-tasks](https://github.com/Pfeszler/Task-List/blob/master/README-images/without-tasks.jpg?raw=true)
+
+### hidden tasks
+
+![hidden-tasks](https://raw.githubusercontent.com/Pfeszler/Task-List/master/README-images/hidden-tasks.jpg)
+
+## last update: 
+- fully convertet to React-JS using create-react app
+
+## About me
+
+
+Paweł Feszler, sales manager and wannabe front-end developer ;)\
+In my project i always try to follow the best practices, use semantic HTML and write as clean code as i can, but i'm still lerning, if you find any buggs or ways to improve my project let mi know. \
+[Contact Me](pfeszler@gmail.com)
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
