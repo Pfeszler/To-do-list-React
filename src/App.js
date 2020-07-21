@@ -38,13 +38,15 @@ function App() {
     }
 
     const addNewTask = (newTaskContent) => {
-        setTasks(tasks =>
-            [...tasks,
-            {
-                id: tasks.length ? tasks[tasks.length - 1].id + 1 : 1,
-                content: newTaskContent,
-                done: false
-            }]);
+        if (newTaskContent.trim() !== "") {
+            setTasks(tasks =>
+                [...tasks,
+                {
+                    id: tasks.length ? tasks[tasks.length - 1].id + 1 : 1,
+                    content: newTaskContent,
+                    done: false
+                }]);
+        }
     };
     return (
         <div className="App">
