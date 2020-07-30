@@ -11,11 +11,17 @@ import Tasks from "./Tasks"
 
 function App() {
 
+    if (localStorage.getItem("tasks") === null) {
+        localStorage.setItem("tasks", JSON.stringify([]));
+    }
 
+    if (localStorage.getItem("hideDone") === null) {
+        localStorage.setItem("hideDone", JSON.stringify(false));
+    }
 
     const [hideDone, setHideDone] = useState(JSON.parse(localStorage.getItem("hideDone")));
 
-    
+
 
     const toggleHideDone = () => {
         setHideDone(hideDone => !hideDone)
@@ -56,6 +62,9 @@ function App() {
 
     useEffect(() => {localStorage.setItem("tasks", JSON.stringify([...tasks]))}, [tasks]);
     useEffect(() => {localStorage.setItem("hideDone", JSON.stringify(!!hideDone))}, [hideDone]);
+  
+
+
 
     return (
         <div className="App">
