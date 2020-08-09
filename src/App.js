@@ -7,27 +7,20 @@ import Buttons from "./Buttons"
 import Tasks from "./Tasks"
 
 
-
-
 function App() {
-
     if (localStorage.getItem("tasks") === null) {
         localStorage.setItem("tasks", JSON.stringify([]));
     }
-
     if (localStorage.getItem("hideDone") === null) {
         localStorage.setItem("hideDone", JSON.stringify(false));
     }
 
     const [hideDone, setHideDone] = useState(JSON.parse(localStorage.getItem("hideDone")));
-
-
+    const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")));
 
     const toggleHideDone = () => {
         setHideDone(hideDone => !hideDone)
     };
-
-    const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")));
 
     const removeTask = (id) => {
         setTasks(tasks => tasks.filter(task => task.id !== id))
@@ -60,10 +53,12 @@ function App() {
         }
     };
 
-    useEffect(() => {localStorage.setItem("tasks", JSON.stringify([...tasks]))}, [tasks]);
-    useEffect(() => {localStorage.setItem("hideDone", JSON.stringify(!!hideDone))}, [hideDone]);
-  
-
+    useEffect(() => {
+        localStorage.setItem("tasks", JSON.stringify(tasks))
+    }, [tasks]);
+    useEffect(() => {
+        localStorage.setItem("hideDone", JSON.stringify(hideDone))
+    }, [hideDone]);
 
 
     return (
@@ -77,20 +72,23 @@ function App() {
                         addNewTask={addNewTask} />} />
                 <Section
                     title="Lista zadań"
-                    body={<Tasks
-                        tasks={tasks}
-                        hideDone={hideDone}
-                        removeTask={removeTask}
-                        toggleTaskDone={toggleTaskDone} />}
-                    extraHeaderContent={<Buttons
-                        tasks={tasks}
-                        hideDone={hideDone}
-                        toggleHideDone={toggleHideDone}
-                        setAllDone={setAllDone} />} />
-
+                    body={
+                        <Tasks
+                            tasks={tasks}
+                            hideDone={hideDone}
+                            removeTask={removeTask}
+                            toggleTaskDone={toggleTaskDone}
+                        />}
+                    extraHeaderContent={
+                        <Buttons
+                            tasks={tasks}
+                            hideDone={hideDone}
+                            toggleHideDone={toggleHideDone}
+                            setAllDone={setAllDone}
+                        />}
+                />
             </Container>
         </div >
     );
 }
-
 export default App;
