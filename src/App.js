@@ -8,15 +8,18 @@ import Tasks from "./Tasks"
 
 
 function App() {
-    if (localStorage.getItem("tasks") === null) {
-        localStorage.setItem("tasks", JSON.stringify([]));
-    }
-    if (localStorage.getItem("hideDone") === null) {
-        localStorage.setItem("hideDone", JSON.stringify(false));
-    }
+    const createInitialTasks = () => {
+        const localStorageTasks = localStorage.getItem("tasks");
+        return localStorageTasks ? JSON.parse(localStorageTasks) : []
+    };
+    const createInitialHideDone = () => {
+        const localStorageHideDone = localStorage.getItem("hideDone");
+        return localStorageHideDone ? JSON.parse(localStorageHideDone) : false
+    };
 
-    const [hideDone, setHideDone] = useState(JSON.parse(localStorage.getItem("hideDone")));
-    const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")));
+
+    const [hideDone, setHideDone] = useState(createInitialHideDone());
+    const [tasks, setTasks] = useState(createInitialTasks());
 
     const toggleHideDone = () => {
         setHideDone(hideDone => !hideDone)
