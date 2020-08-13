@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React  from 'react';
+import { useLocalStorageState } from "./useLocalStorageState"
 import Container from "./Container"
 import Header from "./Header"
 import Section from "./Section"
@@ -8,18 +9,9 @@ import Tasks from "./Tasks"
 
 
 function App() {
-    const createInitialTasks = () => {
-        const localStorageTasks = localStorage.getItem("tasks");
-        return localStorageTasks ? JSON.parse(localStorageTasks) : []
-    };
-    const createInitialHideDone = () => {
-        const localStorageHideDone = localStorage.getItem("hideDone");
-        return localStorageHideDone ? JSON.parse(localStorageHideDone) : false
-    };
 
-
-    const [hideDone, setHideDone] = useState(createInitialHideDone());
-    const [tasks, setTasks] = useState(createInitialTasks());
+    const [hideDone, setHideDone] = useLocalStorageState("hideDone", false);
+    const [tasks, setTasks] = useLocalStorageState("tasks", []);
 
     const toggleHideDone = () => {
         setHideDone(hideDone => !hideDone)
@@ -55,13 +47,6 @@ function App() {
                 }]);
         }
     };
-
-    useEffect(() => {
-        localStorage.setItem("tasks", JSON.stringify(tasks))
-    }, [tasks]);
-    useEffect(() => {
-        localStorage.setItem("hideDone", JSON.stringify(hideDone))
-    }, [hideDone]);
 
 
     return (
