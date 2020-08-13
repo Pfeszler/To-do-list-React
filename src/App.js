@@ -1,5 +1,6 @@
-import React  from 'react';
-import { useLocalStorageState } from "./useLocalStorageState"
+import React from 'react';
+import { useHideDone } from "./useHideDone"
+import { useTasks } from "./useTasks"
 import Container from "./Container"
 import Header from "./Header"
 import Section from "./Section"
@@ -10,44 +11,16 @@ import Tasks from "./Tasks"
 
 function App() {
 
-    const [hideDone, setHideDone] = useLocalStorageState("hideDone", false);
-    const [tasks, setTasks] = useLocalStorageState("tasks", []);
+    const [tasks,
+        removeTask,
+        toggleTaskDone,
+        setAllDone,
+        addNewTask
+    ] = useTasks()
 
-    const toggleHideDone = () => {
-        setHideDone(hideDone => !hideDone)
-    };
-
-    const removeTask = (id) => {
-        setTasks(tasks => tasks.filter(task => task.id !== id))
-    }
-
-    const toggleTaskDone = (id) => {
-        setTasks(tasks => tasks.map(task => {
-            if (task.id === id) {
-                return { ...task, done: !task.done };
-            }
-            return task
-        }));
-    };
-
-    const setAllDone = () => {
-        setTasks(tasks => tasks.map(task => (
-            { ...task, done: true })
-        ));
-    }
-
-    const addNewTask = (newTaskContent) => {
-        if (newTaskContent.trim() !== "") {
-            setTasks(tasks =>
-                [...tasks,
-                {
-                    id: tasks.length ? tasks[tasks.length - 1].id + 1 : 1,
-                    content: newTaskContent,
-                    done: false
-                }]);
-        }
-    };
-
+    const [hideDone,
+        toggleHideDone
+    ]= useHideDone()
 
     return (
         <div className="App">
