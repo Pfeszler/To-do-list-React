@@ -1,26 +1,28 @@
-.section {
+import styled from "styled-components"
+
+export const StyledSection = styled.section`
     background-color: white;
     margin-bottom: 10px;
     box-shadow: 0px 0px 2px 2px #ddd;
-}
+`
 
-.section__header {
-    margin: 0;
-    padding: 0;
-    text-align: left
-}
-
-.section__headerContainer {
+export const HeaderContainer = styled.div`
     padding: 25px;
     border-bottom: 1px solid #ddd;
     display: flex;
     justify-content: space-between;
     text-align: center;
-}
-
-@media (max-width: 767px) {
-    .section__headerContainer {
+    @media (max-width: 767px) {
         flex-wrap: wrap;
         flex-direction: column;
-    }
 }
+`
+
+export const Header = styled.h2`
+    margin: 0;
+    padding: 0;
+    text-align: left;
+`
+
+
+
