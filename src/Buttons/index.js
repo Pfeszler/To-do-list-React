@@ -1,27 +1,23 @@
 import React from "react"
-import "./style.css"
+import {ButtonContainer, HeaderButton } from "./styled"
 
 const Buttons = ({ tasks, hideDone, toggleHideDone, setAllDone }) => {
     const tasksNotDoneLength = tasks.filter(({ done }) => !done).length
     
     return tasks.length > 0 && (
-        <div
-            className="buttons__buttonContainer"
-        >
-            <button
-                className="buttons__headerButton"
+        <ButtonContainer>
+            <HeaderButton
                 onClick={toggleHideDone}
             >
                 {hideDone ? "Pokaż ukończone" : "Ukryj Ukończone"}
-            </button>
-            <button
-                className="buttons__headerButton"
+            </HeaderButton>
+            <HeaderButton
                 disabled={tasksNotDoneLength > 0 ? false : true}
                 onClick={setAllDone}
             >
                 Ukończ wszystkie
-            </button>
-        </div>
+            </HeaderButton>
+        </ButtonContainer>
     )
 }
 export default Buttons
