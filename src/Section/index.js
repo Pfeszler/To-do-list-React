@@ -1,5 +1,5 @@
 import React from "react"
-import {StyledSection, HeaderContainer, Header} from "./styled"
+import { StyledSection, HeaderContainer, Header } from "./styled"
 
 
 const Section = ({ title, body, extraHeaderContent }) => (
