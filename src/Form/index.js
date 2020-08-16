@@ -9,6 +9,7 @@ const Form = ({ addNewTask }) => {
         event.preventDefault();
         addNewTask(newTaskContent.trim());
         setNewTaskContent("");
+        focusInput();
     }
 
     const inputRef = useRef(null)
@@ -27,9 +28,7 @@ const Form = ({ addNewTask }) => {
                 value={newTaskContent}
                 onChange={({ target }) => setNewTaskContent(target.value)}
             />
-            <Button
-                onClick={() => focusInput()}
-            >
+            <Button>
                 Dodaj Zadanie
             </Button>
         </StyledForm>
