@@ -4,7 +4,7 @@
 ## Want to see demo page? click [here](https://pfeszler.github.io/To-do-list-React/)
 
 Here it is, my first interactive task list! I made it during the course "Front End Developer" provided by You Code Academy. 
-It contains of header and two sections. On first section there is a INPUT to write your task and button to submit it to the list. Your tasks will appear in the second section. Also, there will be two buttons, one to mark task as completed and second to remove task from the list. Also, on the top of tasks section there is two buttons, one which mark all tasks as done and one that hide done tasks
+It contains of header and two sections. On first section there is a INPUT to write your task and button to submit it to the list. Your tasks will appear in the second section. Also, there will be two buttons, one to mark task as completed and second to remove task from the list. Also, on the top of tasks section there is two buttons, one which mark all tasks as done and one that hide done tasks. Application also store tasks in local storage. Styled by styled components
 
 ## Added New fetures: 
 
@@ -12,9 +12,9 @@ Technologies used in development:
 - HTML
 - CSS
 - JavaScript
-- BEM metodolgy
 - React JS
 - create-react-app
+- Styled Components
 
 ## How to use it?
 1. Enter your task in INPUT
