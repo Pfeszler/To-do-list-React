@@ -30,15 +30,15 @@ Technologies used in development:
 
 ### with tasks
 
-![with-tasks](https://raw.githubusercontent.com/Pfeszler/Task-List/master/README-images/with-tasks.jpg)
+![with-tasks](https://github.com/Pfeszler/To-do-list-React/blob/master/public/ReadMeImages/with-tasks.jpg?raw=true)
 
 ### without tasks
 
-![witout-tasks](https://github.com/Pfeszler/Task-List/blob/master/README-images/without-tasks.jpg?raw=true)
+![witout-tasks](https://github.com/Pfeszler/To-do-list-React/blob/master/public/ReadMeImages/without-tasks.jpg?raw=true)
 
 ### hidden tasks
 
-![hidden-tasks](https://raw.githubusercontent.com/Pfeszler/Task-List/master/README-images/hidden-tasks.jpg)
+![hidden-tasks](https://github.com/Pfeszler/To-do-list-React/blob/master/public/ReadMeImages/hidden-tasks.jpg?raw=true)
 
 ## last update: 
 - fully convertet to React-JS using create-react app
