@@ -1,15 +1,15 @@
 import React from 'react';
 import { useHideDone } from "./useHideDone"
 import { useTasks } from "./useTasks"
-import Container from "./Container"
-import Header from "./Header"
-import Section from "./Section"
+import Container from "../../../common/Container"
+import Header from "../../../common/Header"
+import Section from "../../../common/Section"
 import Form from "./Form"
 import Buttons from "./Buttons"
-import Tasks from "./Tasks"
+import TasksList from "./TasksList"
 
 
-function App() {
+function Tasks() {
 
     const [tasks,
         removeTask,
@@ -34,7 +34,7 @@ function App() {
                 <Section
                     title="Lista zadań"
                     body={
-                        <Tasks
+                        <TasksList
                             tasks={tasks}
                             hideDone={hideDone}
                             removeTask={removeTask}
@@ -52,4 +52,4 @@ function App() {
         </div >
     );
 }
-export default App;
+export default Tasks;

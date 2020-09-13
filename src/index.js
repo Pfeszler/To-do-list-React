@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { GlobalStyle } from "./GlobalStyles";
 import { ThemeProvider } from "styled-components"
-import App from './App';
+import App from "./App";
 import * as serviceWorker from './serviceWorker';
 import { theme } from "./theme"
+import { configureStore } from "@reduxjs/toolkit"
+
 
 ReactDOM.render(
   <React.StrictMode>
