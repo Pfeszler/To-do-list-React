@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 export const ButtonContainer = styled.div`
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
@@ -13,6 +13,11 @@ export const HeaderButton = styled.button`
     background-color: transparent;
     color: ${({ theme }) => theme.color.teal};
     transition: 0.3s;
+
+    ${({ invisible }) => invisible && css`
+        display: none;
+    `
+    }
 
     &:hover {
         filter: brightness(110%);
