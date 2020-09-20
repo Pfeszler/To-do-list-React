@@ -11,10 +11,15 @@ It contains of header and two sections. On first section there is a INPUT to wri
 Technologies used in development:
 - HTML
 - CSS
-- JavaScript
+- JavaScript ES6
 - React JS
 - create-react-app
 - Styled Components
+- hooks
+- custom hooks
+- redux
+- redux saga
+- react-router
 
 ## How to use it?
 1. Enter your task in INPUT
@@ -24,24 +29,17 @@ Technologies used in development:
 5. If you want to delete taksk, click on RED BUTTON
 6. click on "Ukończ Wszystkie" to mark all tasks as done
 7. click on "Ukryj Ukończone"  to hide all done tasks
-8. Enjoy using it :)
+8. click on "Pobierz przykładowe zadania" to fetch example tasks
+9. You can also filter the tasks using input with "Filtruj Zadania" placeholder
+10. You can use navigation to chose "o Autorze" to read few words about me
+11. Now every Task has it's own subpage, you can check how it looks
+12. Enjoy using it :)
 
 ## How it looks?
 
-### with tasks
-
-![with-tasks](https://github.com/Pfeszler/To-do-list-React/blob/master/public/ReadMeImages/with-tasks.jpg?raw=true)
-
-### without tasks
-
-![witout-tasks](https://github.com/Pfeszler/To-do-list-React/blob/master/public/ReadMeImages/without-tasks.jpg?raw=true)
-
-### hidden tasks
-
-![hidden-tasks](https://github.com/Pfeszler/To-do-list-React/blob/master/public/ReadMeImages/hidden-tasks.jpg?raw=true)
-
+New screenshots soon ;)
 ## last update: 
-- fully convertet to React-JS using create-react app
+added navigation, filter, subpages for tasks and few more ;) 
 
 ## About me
 
