@@ -16,9 +16,11 @@ const TaskPage = () => {
             <Section
                 title={task ? task.content : "nie znaleziono zadania"}
                 body={
-                    <div>
-                      {task? `ukończone : ${task.done ? "tak" : "nie"}` : ""}  
-                    </div>
+                    <section>
+                        <strong>
+                            {task ? `Ukończone : ${task.done ? "Tak" : "Nie"}` : ""}
+                        </strong>
+                    </section>
                 }
             />
         </Container>
