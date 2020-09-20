@@ -6,11 +6,11 @@ import { useLoadingStatus } from "./useLoadingStatus"
 
 const TopButton = () => {
     const dispatch = useDispatch()
-    const {loadingText, loading} = useLoadingStatus()
+    const {loadingText, loading, failed} = useLoadingStatus()
     return (
         <ButtonContainer>
             <HeaderButton
-                disabled={loading ? true : false}
+                disabled={loading || failed? true : false}
                 onClick={() => dispatch(fetchExampleTasks())}
             >
                 {loadingText()}
