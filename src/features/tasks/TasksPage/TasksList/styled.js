@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components"
+import { Link } from "react-router-dom"
 
 export const List = styled.ul`
     list-style: none;
@@ -25,10 +26,23 @@ export const Text = styled.span`
     flex-basis: 100%;
     flex-shrink: 1;
     margin: 0 20px;
+`
+
+export const StyledLink = styled(Link)`
+    color: ${({ theme }) => theme.color.teal};
+    text-decoration: none;
 
     ${({ done }) => done && css`
         text-decoration: line-through;
     `}
+    
+    &:hover {
+        filter: brightness(110%);
+    }
+
+    &:active {
+        filter: brightness(120%);
+    }
 `
 
 export const Button = styled.button`
