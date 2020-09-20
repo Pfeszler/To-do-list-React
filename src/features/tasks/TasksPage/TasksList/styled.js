@@ -2,18 +2,14 @@ import styled, { css } from "styled-components"
 
 export const List = styled.ul`
     list-style: none;
-    padding: 20px;
+    padding: 0px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
-        padding: 5px;
-    }
 `
 
 export const Item = styled.li`
     border-bottom: 1px solid ${({ theme }) => theme.color.silver};
     display: flex;
-    padding: 10px;
-    margin: 20px 10px;
+    margin: 30px 0px;
     line-height: 1.5em;
     align-items: center;
 
@@ -21,9 +17,7 @@ export const Item = styled.li`
         display: none;
     `}
     @media (max-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
-        margin: 10px 0;
-        padding: 0;
-        padding-bottom: 10px
+        margin: 20px 0;
     }
 `
 

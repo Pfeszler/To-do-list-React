@@ -24,5 +24,9 @@ export const Header = styled.h2`
     text-align: left;
 `
 
+export const Body = styled.section`
+    padding: 10px 25px;
+`
+
 
 

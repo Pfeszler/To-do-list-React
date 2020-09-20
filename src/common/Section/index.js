@@ -1,5 +1,5 @@
 import React from "react"
-import { StyledSection, HeaderContainer, Header } from "./styled"
+import { StyledSection, HeaderContainer, Header, Body } from "./styled"
 
 
 const Section = ({ title, body, extraHeaderContent }) => (
@@ -10,9 +10,9 @@ const Section = ({ title, body, extraHeaderContent }) => (
             </Header>
             {extraHeaderContent}
         </HeaderContainer>
-        <div>
+        <Body>
             {body}
-        </div>
+        </Body>
 
     </StyledSection>
 )
