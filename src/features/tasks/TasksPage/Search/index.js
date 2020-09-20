@@ -1,24 +1,20 @@
 import React from "react"
-import { useLocation, useHistory } from "react-router-dom"
 import Input from "../Input"
 import { Wrapper } from "./styled"
+import useQueryParameter from "../queryHooks/useQueryParameter";
+import useReplaceQueryParameter from "../queryHooks/useReplaceQueryParameter"
+import searchQueryParamName from "../queryHooks/searchQueryParamName"
 
 
 const Search = () => {
-    const location = useLocation()
-    const history = useHistory()
-    const query = (new URLSearchParams(location.search)).get("szukaj")
+    const query = useQueryParameter(searchQueryParamName)
+    const replaceQueryParameter = useReplaceQueryParameter()
 
     const onInputChange = ({ target }) => {
-        const searchParams = new URLSearchParams(location.search)
-
-        if (target.value.trim() === "") {
-            searchParams.delete("szukaj")
-        } else {
-            searchParams.set("szukaj", target.value)
-
-        }
-        history.replace(`${location.pathname}?${searchParams.toString()}`)
+        replaceQueryParameter({
+            key: searchQueryParamName,
+            value: target.value.trim() !== "" ? target.value : undefined
+        })
     };
     return (
         <Wrapper>
