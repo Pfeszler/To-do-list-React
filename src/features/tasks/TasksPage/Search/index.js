@@ -1,9 +1,10 @@
 import React from "react"
-import Input from "../Input"
-import { Wrapper } from "./styled"
 import useQueryParameter from "../queryHooks/useQueryParameter";
 import useReplaceQueryParameter from "../queryHooks/useReplaceQueryParameter"
 import searchQueryParamName from "../queryHooks/searchQueryParamName"
+import Input from "../Input"
+import { Wrapper } from "./styled"
+
 
 
 const Search = () => {
