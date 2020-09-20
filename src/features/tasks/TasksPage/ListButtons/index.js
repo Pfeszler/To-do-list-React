@@ -1,9 +1,9 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { ButtonContainer, HeaderButton } from "./styled"
-import { selectListInformation, toggleHideDone, setAllDone, fetchExampleTasks } from "../../tasksSlice"
+import { ButtonContainer, HeaderButton } from "../headerButtonsStyles"
+import { selectListInformation, toggleHideDone, setAllDone } from "../../tasksSlice"
 
-const Buttons = () => {
+const ListButtons = () => {
 
     const { tasks, hideDone } = useSelector(selectListInformation);
     const dispatch = useDispatch()
@@ -12,17 +12,12 @@ const Buttons = () => {
     return (
         <ButtonContainer>
             <HeaderButton
-                onClick={() => dispatch(fetchExampleTasks())}
-            >
-                Pobierz przykładowe zadania
-            </HeaderButton>
-            <HeaderButton
                 invisible={tasks.length > 0 ? false : true}
                 onClick={() => dispatch(toggleHideDone())}
             >
                 {hideDone ? "Pokaż ukończone" : "Ukryj Ukończone"}
             </HeaderButton>
-            <HeaderButton
+                <HeaderButton
                 invisible={tasks.length > 0 ? false : true}
                 disabled={tasksNotDoneLength > 0 ? false : true}
                 onClick={() => dispatch(setAllDone())}
@@ -32,4 +27,4 @@ const Buttons = () => {
         </ButtonContainer>
     )
 }
-export default Buttons
+export default ListButtons

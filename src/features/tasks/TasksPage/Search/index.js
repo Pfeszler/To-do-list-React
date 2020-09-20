@@ -1,6 +1,8 @@
 import React from "react"
-import Input from "../Input"
 import { useLocation, useHistory } from "react-router-dom"
+import Input from "../Input"
+import { Wrapper } from "./styled"
+
 
 const Search = () => {
     const location = useLocation()
@@ -14,16 +16,18 @@ const Search = () => {
             searchParams.delete("szukaj")
         } else {
             searchParams.set("szukaj", target.value)
-            
+
         }
         history.replace(`${location.pathname}?${searchParams.toString()}`)
     };
     return (
-        <Input
-            placeholder="Filtruj Zadania"
-            value={query || ""}
-            onChange={onInputChange}
-        />
+        <Wrapper>
+            <Input
+                placeholder="Filtruj Zadania"
+                value={query || ""}
+                onChange={onInputChange}
+            />
+        </Wrapper>
     )
 }
 

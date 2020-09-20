@@ -2,8 +2,9 @@ import React from 'react';
 import Container from "../../../common/Container"
 import Header from "../../../common/Header"
 import Section from "../../../common/Section"
+import TopButton from "./TopButton"
 import Form from "./Form"
-import Buttons from "./Buttons"
+import ListButtons from "./ListButtons"
 import TasksList from "./TasksList"
 import Search from './Search';
 
@@ -16,6 +17,9 @@ const TasksPage = () => {
             <Section
                 title="Dodaj nowe zadanie"
                 body={<Form />}
+                extraHeaderContent={
+                    <TopButton
+                    />}
             />
             <Section
                 title="Wyszukiwarka"
@@ -27,7 +31,7 @@ const TasksPage = () => {
                     <TasksList
                     />}
                 extraHeaderContent={
-                    <Buttons
+                    <ListButtons
                     />}
             />
         </Container>
