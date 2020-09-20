@@ -8,7 +8,7 @@ function* fetchExampleTasksHandler() {
         yield put(setLoadingStatus("loading"))
         const exampleTasks = yield call(getExampleTasks)
         yield put(setTasks(exampleTasks))
-        yield put(setLoadingStatus("succes"))
+        yield put(setLoadingStatus("success"))
     } catch (error) {
         yield put(setLoadingStatus("failed"))
         yield call(alert("coś poszło nie tak"))
