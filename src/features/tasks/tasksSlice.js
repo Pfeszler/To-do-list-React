@@ -55,6 +55,8 @@ export const selectListInformation = state => state.listInformation;
 export const selectTasks = state => selectListInformation(state).tasks;
 export const selectHideDone = state => selectListInformation(state).hideDone;
 export const selectLoadingStatus = state => selectListInformation(state).loadingStatus
+export const selectTasksLength = state => selectTasks(state).length;
+export const selectTaskNotDoneLength = state => selectTasks(state).filter(({ done }) => !done).length;
 export const getTaskById = (state, taskId) => selectTasks(state).find(({ id }) => id === taskId);
 export const selectTasksByQuery = (state, query) => {
     const tasks = selectTasks(state)
