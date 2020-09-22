@@ -6,14 +6,11 @@ import {
     selectHideDone,
     selectTasksByQuery,
 } from "../../tasksSlice";
-
 import useQueryParameter from "../queryHooks/useQueryParameter";
 import searchQueryParamName from "../queryHooks/searchQueryParamName"
 import { List, Item, Text, Button, StyledLink, Form } from "./styled"
 import Input from "../Input"
 import { useEditedTaskContent } from "../../useEditedTaskContent";
-
-
 
 const TasksList = () => {
     const query = useQueryParameter(searchQueryParamName)
@@ -87,6 +84,5 @@ const TasksList = () => {
         </List>
     )
 };
-
 
 export default TasksList

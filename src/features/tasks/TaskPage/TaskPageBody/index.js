@@ -7,7 +7,14 @@ import {
     removeTask,
 } from "../../tasksSlice"
 import { useEditedTaskContent } from "../../useEditedTaskContent"
-import { ButtonContainer, Button, Text, ContentText, LabelText, Form } from "./styled"
+import {
+    ButtonContainer,
+    Button,
+    Text,
+    ContentText,
+    LabelText,
+    Form
+} from "./styled"
 import Input from "../../TasksPage/Input"
 
 const TaskPageBody = () => {

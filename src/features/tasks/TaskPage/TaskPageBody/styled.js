@@ -7,7 +7,7 @@ export const Form = styled.form`
     grid-template-columns: 1fr 4fr 1fr;
     align-items: center;
 
-    @media (max-width: ${({theme}) => theme.breakpoint.tabletMax}px){
+    @media (max-width: ${({ theme }) => theme.breakpoint.tabletMax}px){
         grid-template-columns: 1fr;
     }
 `
@@ -36,7 +36,7 @@ export const ButtonContainer = styled.section`
     grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));;
     grid-gap: 15px;
 
-    @media (max-width: ${({theme}) => theme.breakpoint.tabletMax}px){
+    @media (max-width: ${({ theme }) => theme.breakpoint.tabletMax}px){
         grid-template-columns: 1fr;
     }
 `
