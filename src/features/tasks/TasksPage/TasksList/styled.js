@@ -53,6 +53,8 @@ export const Button = styled.button`
     border: none;
     transition: 0.3s;
     outline: none;
+    color: ${({ theme }) => theme.color.white};
+    font-weight: bold;
 
     ${({ toggleDone }) => toggleDone && css`
         background-color: ${({ theme }) => theme.color.green};
@@ -61,6 +63,16 @@ export const Button = styled.button`
     ${({ remove }) => remove && css`
         background-color: ${({ theme }) => theme.color.red};
     `}
+
+    ${({ edit }) => edit && css`
+        background-color: ${({ theme }) => theme.color.teal};
+        margin: 0px 5px;
+    `}
+
+    ${({ save }) => save && css`
+        background-color: ${({ theme }) => theme.color.orange};
+    `}
+
     &:hover {
             filter: brightness(110%)
         }
@@ -68,4 +80,12 @@ export const Button = styled.button`
     &:active {
             filter: brightness(120%)
         }
+`
+
+export const Form = styled.form`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
 `

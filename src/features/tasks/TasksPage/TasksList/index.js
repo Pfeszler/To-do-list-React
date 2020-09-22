@@ -1,9 +1,19 @@
-import React from "react"
+import React, { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { toggleTaskDone, removeTask, selectHideDone, selectTasksByQuery } from "../../tasksSlice";
-import useQueryParameter  from "../queryHooks/useQueryParameter";
+import {
+    toggleTaskDone,
+    removeTask,
+    setTaskInEdition,
+    editTaskContent,
+    finishTasksEdition,
+    selectHideDone,
+    selectTasksByQuery,
+    getInEditionTask
+} from "../../tasksSlice";
+import useQueryParameter from "../queryHooks/useQueryParameter";
 import searchQueryParamName from "../queryHooks/searchQueryParamName"
-import { List, Item, Text, Button, StyledLink } from "./styled"
+import { List, Item, Text, Button, StyledLink, Form } from "./styled"
+import Input from "../Input"
 
 
 
@@ -12,8 +22,24 @@ const TasksList = () => {
 
     const tasks = useSelector(state => selectTasksByQuery(state, query))
     const hideDone = useSelector(selectHideDone)
+    const inEditionTask = useSelector(getInEditionTask)
+    const inEditionTaskContent = inEditionTask ? inEditionTask.content : ""
 
     const dispatch = useDispatch();
+
+    const [editedTaskContent, setEditedTaskContent] = useState(inEditionTaskContent)
+
+    const onClickTaskEdition = (taskId, taskContent) => {
+        dispatch(setTaskInEdition(taskId));
+        setEditedTaskContent(taskContent)
+    }
+
+    const onFormSubmit = (event, taskID) => {
+        event.preventDefault()
+        dispatch(editTaskContent({ id: taskID, content: editedTaskContent }))
+        dispatch(finishTasksEdition())
+
+    }
 
     return (
         <List>
@@ -28,16 +54,39 @@ const TasksList = () => {
                     >
                         {task.done ? "✔️" : ""}
                     </Button>
-                    <Text>
-                        <StyledLink
-                            to={`/zadania/${task.id}`}
-                            done={task.done ? true : false}
-                        >
-                          
+                    { task.inEdition === false ? (
+                        <Text>
+                            <StyledLink
+                                to={`/zadania/${task.id}`}
+                                done={task.done ? true : false}
+                            >
+
                                 {task.content}
-        
-                        </StyledLink>
-                    </Text>
+
+                            </StyledLink>
+                        </Text>
+                    ) : (
+                            <Form
+                                onSubmit={(event) => onFormSubmit(event, task.id)}
+                            >
+                                <Input
+                                    value={editedTaskContent}
+                                    onChange={({ target }) => setEditedTaskContent(target.value)}
+                                />
+                                <Button
+                                    save
+                                >
+                                    S
+                                </Button>
+                            </Form>
+                        )
+                    }
+                    <Button
+                        edit
+                        onClick={() => onClickTaskEdition(task.id, task.content)}
+                    >
+                        {task.inEdition ? "R" : "E"}
+                    </Button>
                     <Button
                         remove
                         onClick={() => dispatch(removeTask(task.id, 1))}

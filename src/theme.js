@@ -5,8 +5,8 @@ export const theme = {
         silver: "#ddd",
         white: "#fff",
         green: "#008000",
-        red: "#FF0000"
-        
+        red: "#FF0000",
+        orange: "#FFA500"
     },
     breakpoint: {
         mobileMax: 767,

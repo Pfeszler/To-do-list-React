@@ -19,6 +19,18 @@ const tasksSlice = createSlice({
             const index = tasks.findIndex(task => task.id === payload);
             tasks[index].done = !tasks[index].done
         },
+        setTaskInEdition: ({ tasks }, { payload }) => {
+            const index = tasks.findIndex(task => task.id === payload);
+            tasks.forEach((task) => task.inEdition = false)
+            tasks[index].inEdition = true
+        },
+        finishTasksEdition:({tasks}) => {
+            tasks.forEach((task) => task.inEdition = false)
+        },
+        editTaskContent: ({ tasks }, { payload }) => {
+            const index = tasks.findIndex(task => task.id === payload.id)
+            tasks[index].content = payload.content
+        },
         removeTask: ({ tasks }, { payload }) => {
             const index = tasks.findIndex(task => task.id === payload);
             tasks.splice(index, 1)
@@ -43,6 +55,9 @@ export const {
     addTask,
     toggleHideDone,
     toggleTaskDone,
+    setTaskInEdition,
+    finishTasksEdition,
+    editTaskContent,
     removeTask,
     setAllDone,
     setLoadingStatus,
@@ -58,6 +73,7 @@ export const selectLoadingStatus = state => selectListInformation(state).loading
 export const selectTasksLength = state => selectTasks(state).length;
 export const selectTaskNotDoneLength = state => selectTasks(state).filter(({ done }) => !done).length;
 export const getTaskById = (state, taskId) => selectTasks(state).find(({ id }) => id === taskId);
+export const getInEditionTask = state => selectTasks(state).find(({ inEdition }) => inEdition === true);
 export const selectTasksByQuery = (state, query) => {
     const tasks = selectTasks(state)
     if (!query || query.trim() === "") {
