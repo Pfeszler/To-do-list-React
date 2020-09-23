@@ -1,6 +1,6 @@
-import {useLocation} from "react-router-dom"
+import { useLocation } from "react-router-dom"
 
-const useQueryParameter = (parameter) =>  {
+const useQueryParameter = (parameter) => {
     const location = useLocation()
     return (new URLSearchParams(location.search)).get(parameter)
 }
