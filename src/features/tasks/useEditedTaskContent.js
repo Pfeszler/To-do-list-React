@@ -20,8 +20,12 @@ export const useEditedTaskContent = () => {
 
     const onFormSubmit = (event, taskID) => {
         event.preventDefault()
-        dispatch(editTaskContent({ id: taskID, content: editedTaskContent }))
-        dispatch(finishTasksEdition())
+        if (editedTaskContent.trim() !== "") {
+            dispatch(editTaskContent({ id: taskID, content: editedTaskContent }))
+            dispatch(finishTasksEdition())
+        } else {
+            alert("Nie można zapisać pustego zadania")
+        }
     }
 
     return { editedTaskContent, setEditedTaskContent, onClickTaskEdition, onFormSubmit }
