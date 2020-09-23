@@ -1,7 +1,8 @@
-import { takeEvery, call, put, select, delay } from "redux-saga/effects"
-import { fetchExampleTasks, setTasks, selectTasks, setLoadingStatus } from "./tasksSlice"
+import { takeEvery, call, put, select, delay, takeLatest } from "redux-saga/effects"
+import { fetchExampleTasks, setTasks, selectTasks, selectHideDone, setLoadingStatus, toggleHideDone } from "./tasksSlice"
 import { getExampleTasks } from "./getExampleTasks"
-import { saveTasksToLocalStorage } from "./tasksLocalStorage"
+import { saveToLocalStorage } from "./localStorage/localStorage"
+import {tasksKey, hideDoneKey} from "./localStorage/localStorageKeys"
 
 function* fetchExampleTasksHandler() {
     try {
@@ -16,13 +17,18 @@ function* fetchExampleTasksHandler() {
     }
 }
 
-
 function* saveTasksToLocalStorageHandler() {
     const tasks = yield select(selectTasks)
-    yield call(saveTasksToLocalStorage, tasks)
+    yield call(saveToLocalStorage, tasksKey, tasks)
+}
+
+function* saveHideDoneToLocalStorageHandler() {
+    const hideDone = yield select(selectHideDone)
+    yield call(saveToLocalStorage, hideDoneKey, hideDone)
 }
 
 export function* tasksSaga() {
     yield takeEvery(fetchExampleTasks.type, fetchExampleTasksHandler )
     yield takeEvery("*", saveTasksToLocalStorageHandler)
+    yield takeLatest(toggleHideDone.type, saveHideDoneToLocalStorageHandler)
 }
