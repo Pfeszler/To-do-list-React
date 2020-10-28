@@ -2,11 +2,13 @@
     {
         "content": "przykładowe zadanie 1",
         "done": false,
-        "id": "hQpFNOnF1UqS3qcVaguM-"
+        "id": "hQpFNOnF1UqS3qcVaguM-",
+        "inEdition": false
     },
     {
         "content": "przykładowae zadanie 2",
         "done": false,
-        "id": "vvbYGthOa6oF5F6zg25kE"
+        "id": "vvbYGthOa6oF5F6zg25kE",
+        "inEdition": false
     }
 ]
