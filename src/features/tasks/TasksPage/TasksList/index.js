@@ -56,6 +56,7 @@ const TasksList = () => {
                             >
                                 <Input
                                     value={editedTaskContent}
+                                    task
                                     onChange={({ target }) => setEditedTaskContent(target.value)}
                                 />
                                 <Button

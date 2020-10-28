@@ -18,14 +18,14 @@ export const Item = styled.li`
         display: none;
     `}
     @media (max-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
-        margin: 20px 0;
+        margin: 20px -15px;
     }
 `
 
 export const Text = styled.span`
     flex-basis: 100%;
     flex-shrink: 1;
-    margin: 0 20px;
+    margin: 0 15px;
 `
 
 export const StyledLink = styled(Link)`

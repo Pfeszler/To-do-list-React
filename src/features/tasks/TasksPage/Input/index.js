@@ -1,6 +1,6 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
-const  Input = styled.input`
+const Input = styled.input`
     flex-basis: 100%;
     padding: 10px;
     margin: 20px;
@@ -10,6 +10,11 @@ const  Input = styled.input`
 
     @media (max-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
         margin: 10px;
+
+        ${({ task }) => task && css`
+            flex-basis: 0;
+            width: 150px;
+        `}
     }
 `
 
